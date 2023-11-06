@@ -95,8 +95,11 @@ output_table_filename = str(args.GLDS_ID) + "-raw-validation-summary.tsv"
 
 gzip_or_fastq_format_check_failed_message = "Failed gzip test and/or fastq-format check."
 
+is_slurm = False
+
 if args.slurm:
 
+    is_slurm = True
     sbatch_file = str(args.GLDS_ID) + "-raw-validation.slurm"
     slurm_out_file = str(args.GLDS_ID) + "-raw-validation-slurm.out"
     slurm_job_name = str(args.GLDS_ID) + "-raw-validation"
@@ -734,6 +737,8 @@ def run_fastq_check(first_file, second_file = "", problem_files_list = []):
     """
     this runs the fastq_info subprocess and returns needed outputs, used in check_fastq_format function
     """
+
+    if 
 
     if second_file == "":
         
